@@ -1,4 +1,5 @@
 import React from 'react';
+import './Modal.css';
 import {motion} from 'framer-motion';
 function Modal({selectedImage, setSelectedImage}) {
   const handleClick = (e) => {

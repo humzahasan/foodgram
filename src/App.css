@@ -9,89 +9,8 @@
   text-align: center;
 }
 
-
 .progressbar {
   height: 5px;
   background-color: #3B82F6;
 }
 
-.output {
-  margin-top: 1rem;
-}
-
-.output__error {
-  color: red;
-}
-
-.output__success {
-  color: green;
-}
-
-input[type="file"] {
-  display: none;
-}
-
-label input{
-  height: 0;
-  width: 0;
-  opacity: 0;
-}
-
-label{
-  display: block;
-  width: 30px;
-  height: 30px;
-  border: 1px solid #3B82F6;
-  border-radius: 50%;
-  margin: 10px auto;
-  line-height: 30px;
-  color: #3B82F6;
-  font-weight: bold;
-  font-size: 24px;
-}
-
-label:hover{
-  background: #3B82F6;
-  color: white;
-}
-
-.image__grid {
-  margin: 25px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 50px;
-}
- 
-.image__wrapper {
-  overflow: hidden;
-  height: 0;
-  padding: 50% 0;
-  position: relative;
-  opacity: 0.8;
-} 
-.image__wrapper img {
-  min-width: 100%;
-  min-height: 100%;
-  max-width: 150%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.backdrop img {
-  display: block;
-  max-width: 60vw;
-  max-height: 60vh;
-  margin: 60px auto;
-  box-shadow: 3px 5px px rgba(0, 0, 0, 0.7);
-  border: 2px solid white;
-}

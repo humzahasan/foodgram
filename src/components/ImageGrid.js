@@ -1,4 +1,5 @@
 import React from 'react';
+import './ImageGrid.css'
 import useFireStore from '../hooks/useFirestore';
 import {motion} from 'framer-motion';
 
