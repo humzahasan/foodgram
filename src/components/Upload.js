@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
+import {UserContext} from '../providers/UserProvider';
 import Progressbar from './Progressbar';
 import './Upload.css';
 
 const Upload = () => {
   const [file, setFile] = useState(null);
   const [error, setError] = useState(null);
+  const user = useContext(UserContext);
 
   const uploadHandler = (e) => {
     console.log(e.target.files[0]);
@@ -21,17 +23,23 @@ const Upload = () => {
 
   return (
     <div className='upload'>
-      <form>
-        <label>
-          <input type='file' onChange={uploadHandler} />
-          <span>+</span>
-        </label>{' '}
-        <div className='output'>
-          {error && <div className='output__error'>{error}</div>}
-          {file && <div className='output__success'>{file.name}</div>}
-          {file && <Progressbar file={file} setFile={setFile} />}
+      {user ? (
+        <form>
+          <label>
+            <input type='file' onChange={uploadHandler} />
+            <span>+</span>
+          </label>{' '}
+          <div className='output'>
+            {error && <div className='output__error'>{error}</div>}
+            {file && <div className='output__success'>{file.name}</div>}
+            {file && <Progressbar file={file} setFile={setFile} />}
+          </div>
+        </form>
+      ) : (
+        <div>
+          <h4>You must login to upload to foodgram</h4>
         </div>
-      </form>
+      )}
     </div>
   );
 };
