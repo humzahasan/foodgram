@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createContext, useContext} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 import {projectAuth} from '../config/firebase';
 export const UserContext = createContext({user: null});
 // eslint-disable-next-line import/no-anonymous-default-export
