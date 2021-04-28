@@ -9,7 +9,6 @@ const Upload = () => {
   const user = useContext(UserContext);
 
   const uploadHandler = (e) => {
-    console.log(e.target.files[0]);
     const selectedFile = e.target.files[0];
     const acceptedType = ['image/jpeg', 'image/png'];
     if (selectedFile && acceptedType.includes(selectedFile.type)) {

@@ -26,7 +26,6 @@ const ActionButtons = () => {
       .signOut()
       .then(() => {
         console.log('LOGGED OUT');
-        console.log(user);
       })
       .catch((error) => console.log('FAILED'));
   };

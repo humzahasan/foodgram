@@ -8,19 +8,21 @@ import ActionButtons from './components/ActionButtons';
 import UserProvider from './providers/UserProvider';
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
+  const [createdAt,setCreatedAt] = useState(null);
   return (
     <UserProvider>
       <div className='App'>
         <Title />
         <ActionButtons />
         <Upload />
-        <ImageGrid setSelectedImage={setSelectedImage} setUser={setUser}/>
+        <ImageGrid setSelectedImage={setSelectedImage} setUser={setUser} setCreatedAt={setCreatedAt}/>
         {selectedImage && (
           <Modal
             selectedImage={selectedImage}
             setSelectedImage={setSelectedImage}
             user={user}
+            createdAt={createdAt}
           />
         )}
       </div>

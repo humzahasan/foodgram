@@ -4,10 +4,8 @@ export const UserContext = createContext({user: null});
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props) => {
   const [user, setuser] = useState(null);
-  console.log(user);
   useEffect(() => {
     projectAuth.onAuthStateChanged((user) => {
-      console.log('CHANGED');
       if (user) {
         setuser({
           displayName: user.displayName,
@@ -16,7 +14,6 @@ export default (props) => {
       } else {
         setuser(null);
       }
-      //console.log(user.displayName);
     });
   }, []);
   return (
