@@ -30,7 +30,7 @@ const useStorage = (file) => {
         });
       }
     );
-  }, [file]);
+  }, [file, user.displayName]);
   return {progress, error, url};
 };
 
