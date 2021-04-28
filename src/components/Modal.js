@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 import {motion} from 'framer-motion';
-function Modal({selectedImage, setSelectedImage}) {
+function Modal({selectedImage, setSelectedImage, user}) {
   const handleClick = (e) => {
     if (e.target.classList.contains('backdrop')) setSelectedImage(null);
   };
@@ -18,6 +18,7 @@ function Modal({selectedImage, setSelectedImage}) {
         initial={{y: '-100vh'}}
         animate={{y: '0'}}
       />
+      {user ? <p>{user}</p> : ''}
     </motion.div>
   );
 }

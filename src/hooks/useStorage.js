@@ -1,11 +1,13 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {projectStorage, projectFirestore, timestamp} from '../config/firebase';
+import {UserContext} from '../providers/UserProvider';
 
 const useStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState(null);
   const [url, setUrl] = useState(null);
-
+  const user = useContext(UserContext);
+  console.log(user);
   useEffect(() => {
     const storageRef = projectStorage.ref(file.name);
     const collectionRef = projectFirestore.collection('images');
@@ -22,7 +24,11 @@ const useStorage = (file) => {
       async () => {
         const url = await storageRef.getDownloadURL();
         setUrl(url);
-        collectionRef.add({url: url, createdAt: timestamp()});
+        collectionRef.add({
+          url: url,
+          createdAt: timestamp(),
+          name: user.displayName,
+        });
       }
     );
   }, [file]);

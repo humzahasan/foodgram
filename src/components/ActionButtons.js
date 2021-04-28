@@ -1,12 +1,14 @@
 import React, {useContext} from 'react';
-import firebase from 'firebase';
+import {AiOutlineGooglePlus} from 'react-icons/ai';
+import {FiLogOut} from 'react-icons/fi';
+import { FaThList } from "react-icons/fa";
+import {BsFillGrid3X3GapFill} from 'react-icons/bs';
 import {projectAuth, googleProvider} from '../config/firebase';
 import {UserContext} from '../providers/UserProvider';
 import './ActionButtons.css';
 const ActionButtons = () => {
   const user = useContext(UserContext);
-
-  console.log(user);
+  
 
   const signInHandler = () => {
     projectAuth
@@ -31,13 +33,25 @@ const ActionButtons = () => {
   return (
     <div className='actionbuttons'>
       <div className='actionbuttons__layout'>
-        {user ? <button>Scroll</button> : <button>Grid</button>}
+        {user ? (
+          <button><FaThList /></button>
+        ) : (
+          <button>
+            <BsFillGrid3X3GapFill />
+          </button>
+        )}
       </div>
       <div className='actionbuttons__auth'>
         {user ? (
-          <button onClick={signOutHandler}>Sign Out</button>
+          <button onClick={signOutHandler}>
+            <FiLogOut size='1.5em' />
+            &nbsp;Sign Out
+          </button>
         ) : (
-          <button onClick={signInHandler}>Sign In</button>
+          <button onClick={signInHandler}>
+            Sign In With&nbsp;
+            <AiOutlineGooglePlus size='2em' />
+          </button>
         )}
       </div>
     </div>
